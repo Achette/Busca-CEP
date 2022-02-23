@@ -3,7 +3,7 @@ import * as addressService from "../services/exceptions/address-service.js";
 import * as listController from './list-controller.js'
 
 function State() {
-  this.Address = new Address();
+  this.address = new Address();
 
   this.btnSave = null;
   this.btnClear = null;
@@ -66,10 +66,22 @@ async function handleInputCepChange(event) {
   }
 }
 
-async function handleBtnSaveClick(event) {
+function handleBtnSaveClick(event) {
   event.preventDefault();
 
-  listController.addCard(state.address)
+    const errors = addressService.getErrors(state.address);
+
+    const keys = Object.keys(errors);
+
+    if (keys.length > 0) {
+        keys.forEach(key => {
+            setFormError(key, errors[key]);
+        });
+    }
+    else {
+        listController.addCard(state.address);
+        clearForm();
+    }
 }
 
 function handleInputNumberChange(event) {
