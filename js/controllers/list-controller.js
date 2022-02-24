@@ -16,7 +16,7 @@ export function addCard(address) {
 function createCard(address) {
 
     const div = document.createElement("div");
-    div.classList.add("card-list-item");
+    div.classList.add("card-list-iten");
 
     const h3 = document.createElement("h3");
     h3.innerHTML = address.city;

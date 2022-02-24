@@ -1,5 +1,5 @@
 import Address from "../models/address.js";
-import * as addressService from "../services/exceptions/address-service.js";
+import * as addressService from "../services/address-service.js";
 import * as listController from './list-controller.js'
 
 function State() {
@@ -66,7 +66,7 @@ async function handleInputCepChange(event) {
   }
 }
 
-function handleBtnSaveClick(event) {
+async function handleBtnSaveClick(event) {
   event.preventDefault();
 
     const errors = addressService.getErrors(state.address);
@@ -99,7 +99,7 @@ function handleBtnClearClick(event) {
 
 function clearForm() {
   state.inputCep.value = "";
-  state.inputCity.value = "";
+  state.inputStreet.value = "";
   state.inputNumber.value = "";
   state.inputCity.value = "";
 

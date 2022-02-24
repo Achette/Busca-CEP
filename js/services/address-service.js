@@ -1,5 +1,5 @@
-import * as requestService from '../request-service.js'
-import Address from '../../models/address.js'
+import * as requestService from './request-service.js'
+import Address from '../models/address.js'
 
 
 export async function findByCep(cep) {
